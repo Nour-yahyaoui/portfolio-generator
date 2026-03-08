@@ -76,21 +76,68 @@ body {
     transform: translateY(-2px);
 }
 
-/* Input fields */
+/* Input fields - FIXED VERSION */
 .input-field {
     width: 100%;
-    padding: 0.625rem 1rem;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;  /* Added left padding for icon */
     border: 2px solid #d1d5db;
-    border-radius: 0.5rem;
+    border-radius: 0.75rem;
     background-color: white;
     transition: all 0.2s ease;
-    font-size: 0.875rem;
+    font-size: 0.95rem;
+    color: #111827;
+    line-height: 1.5;
+    position: relative;
+    z-index: 1;
 }
 
 .input-field:focus {
     outline: none;
     border-color: #3b82f6;
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.input-field::placeholder {
+    color: #9ca3af;
+    opacity: 1;
+}
+
+/* Icon wrapper - use this in your JSX */
+.input-icon-wrapper {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.input-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    z-index: 2;
+    pointer-events: none;  /* Allows clicking through to input */
+}
+
+/* Password toggle button */
+.password-toggle {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #9ca3af;
+    cursor: pointer;
+    z-index: 3;
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.password-toggle:hover {
+    color: #3b82f6;
 }
 
 /* Buttons */
